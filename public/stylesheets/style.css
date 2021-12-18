@@ -6,8 +6,8 @@
 
 
 body {
-  margin: 0;
-  height: 100vh;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: grid;
   grid-template-rows: 50px 1fr;
   grid-template-areas: 
