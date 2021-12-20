@@ -4,5 +4,5 @@ const ventsCtrl = require('../controllers/vents')
 const isLoggedIn = require('../config/auth');
 
 router.post('/rents/:id/vents', isLoggedIn, ventsCtrl.create)
-
+router.delete('/vents/:id', isLoggedIn, ventsCtrl.deleteVent)
 module.exports = router;

@@ -34,8 +34,8 @@
 
         <% if (rent.vents.length) { %>
             <% let total=0 %>
-                <% rent.vents.forEach(function(r) { %>
-                    <% total +=r.rating %>
+                <% rent.vents.forEach(function(v) { %>
+                    <% total +=v.rating %>
                         <table>
                             <thead>
                                 <tr>
@@ -46,13 +46,13 @@
 
                                     <th></th>
                                     <td>
-                                        <%= r.rating %>
+                                        <%= v.rating %>
                                     </td>
 
                                     <td>
                                         </th>
-                                        <% if (user && user._id.equals(r.user)) { %>
-                                            <form action="/vents/<%= r._id %>?_method=DELETE" method="POST">
+                                        <% if (user && user._id.equals(v.user)) { %>
+                                            <form action="/vents/<%= v._id %>?_method=DELETE" method="POST">
                                                 <button type="submit">X</button>
                                             </form>
                                             <% } %>
@@ -62,17 +62,17 @@
                             <tbody>
 
                                 <tr>
-                                    <td class="review-user"><img src="<%= r.userAvatar %>">
-                                        <%= r.userName %>
+                                    <td class="review-user"><img src="<%= v.userAvatar %>">
+                                        <%= v.userName %>
                                     </td>
                                     <td>
-                                        <%= r.createdAt.toLocaleDateString() %>
+                                        <%= v.createdAt.toLocaleDateString() %>
                                     </td>
                                     <td>
-                                        <%= r.content %>
+                                        <%= v.content %>
                                     </td>
                                     <td>
-                                        <%= r.rating %>
+                                        <%= v.rating %>
                                     </td>
                                 </tr>
                                 <% }); %>
