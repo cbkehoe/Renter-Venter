@@ -5,7 +5,13 @@ const ventSchema = new Schema({
     content: String,
     rating: {type: Number, min: 1, max: 5, default: 5}
 })
-
+// user: {type: Schema.Types.ObjectId, ref:
+//     'User'},
+//     userName: String,
+//     userAvatar: String,
+//   }, {
+//     timestamps: true
+//   })
 const rentSchema = new Schema({
     apartment: String,
     address: String,

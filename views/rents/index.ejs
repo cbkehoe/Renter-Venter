@@ -28,7 +28,12 @@
         <td><%=r.apartment %></td>
         <td><%= r.address %></td>
         <td><%= r.vacant ? 'Yes' : 'No' %></td>
+        <td><a href='/rents/<%=r._id %>'>Vents</td>
         </tr>
       <% }); %>
+
+      
+
+
     </tbody>
   </table>
