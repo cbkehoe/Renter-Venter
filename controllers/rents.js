@@ -21,17 +21,16 @@ function newRent (req, res) {
 
 function create(req, res) {
     console.log(req.body)
-    // const rent = new Rent(req.body);
+    const rent = new Rent(req.body);
     rent.save(function (err) {
         if (err) return res.redirect('/rents/new');
         res.redirect('/rents')
         
     })
-    const rent = new Rent(req.body)
 }
 
 function show(req, res) {
-    Rent.findById(req.params.id) 
-        res.render('rents/show')
-    
-}
+    Rent.findById(req.params.id, function(err, rent) {
+      res.render('rents/show', { rent })
+    })
+  }

@@ -6,7 +6,7 @@ module.exports = {
 
 
 function create(req, res){
-    Rent.findById(req.params.id, function(err, rent){
+    Rent.findById(req.params.id, function(err, rent) {
         req.body.user = req.user._id
         req.body.userName = req.user.name 
         req.body.userAvatar = req.user.avatar 
