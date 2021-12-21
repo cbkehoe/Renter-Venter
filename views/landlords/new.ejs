@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <section id='badge-container'>
+        <% landlords.forEach(function(l) { %>
+            <article class = 'badge'><%= l.name %></article>
+    <% }) %>
+    </section>
+    
+    <form id='add-landlord-form' action='/landlords' method='POST'>
+        <label>Name:</label>
+        <input type='text' name='name'>
+        <label>Friendly:</label>
+        <%= landlord.friendly ? 'Yes' : 'No' %>
+        <input type='submit' value='Add Landlord'>
+    </form>
+    
+</body>
+</html>

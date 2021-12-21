@@ -18,10 +18,11 @@ const ventSchema = new Schema({
   })
 
 const rentSchema = new Schema({
-    apartment: String,
+    apartment: [String],
     address: String,
     vacant: { type: Boolean, default: true},
-    vents: [ventSchema]
+    vents: [ventSchema],
+    apartment: [{type: Schema.Types.ObjectId, ref: 'Landlord'}]
 })
 
 module.exports = mongoose.model('Rent', rentSchema);

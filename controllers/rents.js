@@ -1,4 +1,5 @@
 const Rent = require('../models/rent')
+const Landlord = require('../models/landlord')
 
 module.exports = {
     new: newRent,
@@ -24,13 +25,20 @@ function create(req, res) {
     const rent = new Rent(req.body);
     rent.save(function (err) {
         if (err) return res.redirect('/rents/new');
-        res.redirect('/rents')
+        res.redirect(`/rents/${rent._id}`)
         
     })
 }
 
 function show(req, res) {
-    Rent.findById(req.params.id, function(err, rent) {
-      res.render('rents/show', { rent })
+    Rent.findById(req.params.id)
+        .populate('apartment').exec (function(err, rent) {
+            Landlord.find(
+                {_id: {$nin: rent.apartment}},
+                function(err, landlords) {
+                    res.render('rents/show', { rent, landlords })
+
+                }
+            )
     })
   }

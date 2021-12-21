@@ -14,7 +14,8 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const rentsRouter = require('./routes/rents');
-const ventsRouter = require('./routes/vents')
+const ventsRouter = require('./routes/vents');
+const landlordsRouter = require('./routes/landlords');
 var app = express();
 
 // view engine setup
@@ -43,6 +44,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/rents', rentsRouter);
 app.use('/', ventsRouter)
+app.use('/landlords', landlordsRouter)
 
 
 // catch 404 and forward to error handler
