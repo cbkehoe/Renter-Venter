@@ -44,7 +44,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/rents', rentsRouter);
 app.use('/', ventsRouter)
-app.use('/landlords', landlordsRouter)
+app.use('/', landlordsRouter)
 
 
 // catch 404 and forward to error handler
