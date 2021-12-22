@@ -12,7 +12,7 @@
         <%= rent.vacant ? 'Yes' : 'No' %>
         <div>Apartment Score:</div>
     </div>
-    
+    <% if (user) { %>
     <select name='apartmentScore'>
         <option value='5'>5</option>
         <option value='4'>4</option>
@@ -20,7 +20,7 @@
         <option value='2'>2</option>
         <option value='1'>1</option>
     </select>
-    
+    <% } %>
     <div>Management:</div>
     
     <ul> 
@@ -79,7 +79,7 @@
                                             </form>
                                             <form action="/vents/<%= v._id %>?_method=PUT" method="POST">
                                                 <!-- Value attribute is being set to the comment's current text -->
-                                                <input name="text" value="<%= v.text %>">
+                                                <input name="content" value="<%= v.text %>">
                                                 <button type="submit">UPDATE VENT</button>
                                               </form>
                                               

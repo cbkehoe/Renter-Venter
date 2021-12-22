@@ -35,14 +35,12 @@ function deleteVent (req, res, next) {
 }
 
 function update (req, res) {
-    vent = rent.vents.id(req.params.id);
-    Vent.findByIdAndUpdate({_id: req.params.id, userVent: req.user._id},
-        function(err, rent){ const ventSubdoc = rent.vents.id(req.params.id);
-            if (!ventSubdoc.userId.equals(req.user._id)) return res.redirect(`/rents/${rent._id}`)
-            ventSubdoc.text = req.body.text;
-            rent.save(function(err){
-                res.redirect(`/rents/${rent._id}`)
-                
-            })
+    Rent.findOne({'vents._id': req.params.id})
+    .then(function(rent){
+        const vent = rent.vents.id(req.params.id)
+        vent.content = req.body.content 
+        rent.save(function(err){
+            res.redirect(`/rents/${rent._id}`)
+        })
     })
 }
