@@ -3,8 +3,8 @@ const Rent = require('../models/rent')
 module.exports = {
     create,
     deleteVent,
-    edit,
-    update
+    // edit,
+    // update
 }
 
 
@@ -34,8 +34,8 @@ function deleteVent (req, res, next) {
     });
 }
 
-function edit (req, res) {
-    Vent.findOne({_id: req.params.id, userVent: req.user._id }, function(err, vent){
-        if (err || !vent) return res.redire
-    })
-}
+// function edit (req, res) {
+//     Vent.findOne({_id: req.params.id, userVent: req.user._id }, function(err, vent){
+//         if (err || !vent) return res.redire
+//     })
+// }
