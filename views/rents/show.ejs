@@ -24,8 +24,8 @@
     <div>Management:</div>
     
     <ul> 
-        <%- rent.apartment.map(p =>
-        `<li>${l.name} <small></small></li>`
+        <%- rent.manager.map(l =>
+        `<li> <small>${l.name}</small></li>`
         ).join('') %>
     
         </ul>
@@ -41,7 +41,9 @@
     </select>
 
     <button type='submit'>Add to Apartment</button>
-</form>
+    </form>
+    <% } %>
+    <% if(user) { %>
     <br><br>
     <h2>Vents</h2>
     <form id='add-vent-form' method='POST' action='/rents/<%= rent._id %>/vents'>
@@ -75,7 +77,14 @@
                                             <form action="/vents/<%= v._id %>?_method=DELETE" method="POST">
                                                 <button type="submit">X</button>
                                             </form>
+                                            <form action="/vents/<%= v._id %>?_method=PUT" method="POST">
+                                                <!-- Value attribute is being set to the comment's current text -->
+                                                <input name="text" value="<%= v.text %>">
+                                                <button type="submit">UPDATE VENT</button>
+                                              </form>
+                                              
                                             <% } %>
+                                           
                                     </td>
                                 </tr>
                             </thead>

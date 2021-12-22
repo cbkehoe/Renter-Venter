@@ -9,13 +9,13 @@ module.exports = {
 }
 
 function index(req, res) {
-    Rent.find({}, function(err, rents){
+    Rent.find({}, function (err, rents) {
         res.render('rents/index', { rents })
     })
 }
 
-function newRent (req, res) {
-    res.render('rents/new', { title: 'Add Apartment'})
+function newRent(req, res) {
+    res.render('rents/new', { title: 'Add Apartment' })
 }
 
 
@@ -26,19 +26,20 @@ function create(req, res) {
     rent.save(function (err) {
         if (err) return res.redirect('/rents/new');
         res.redirect(`/rents/${rent._id}`)
-        
+
     })
 }
 
 function show(req, res) {
     Rent.findById(req.params.id)
-        .populate('apartment').exec (function(err, rent) {
+        .populate('apartment manager').exec(function (err, rent) {
             Landlord.find(
-                {_id: {$nin: rent.apartment}},
-                function(err, landlords) {
-                    res.render('rents/show', { rent, landlords })
-
+                { _id: { $nin: rent.manager } },
+                function (err, landlords) {
+                    res.render('rents/show', {
+                        rent, landlords
+                    })
                 }
             )
-    })
-  }
+        })
+}
