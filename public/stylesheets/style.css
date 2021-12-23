@@ -6,16 +6,19 @@
 
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #E8ECEB;
+  padding: 20px;
+  overflow-y: scroll;
   grid-template-areas: 
     "nav"
     "main"
 }
 a {
-  color: #00B7FF;
+  color: #f700ff;
 }
 body > nav {
   grid-area: nav;
@@ -24,6 +27,12 @@ body > nav {
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
+}
+
+#rents{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
 }
 
 nav > img {
@@ -61,11 +70,12 @@ nav > a:hover:not(.active) {
 nav > a.active {
   color: white;
   cursor: default;
+  padding: 40px;
 }
 .login {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: top;
   height: 34px;
 }
 
